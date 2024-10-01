@@ -16,27 +16,26 @@ public class VehicleTestExample {
 
         Vehicle vehicle1 = new Vehicle("AutoMotoBrand", "NewSuperPremModel-01", vc1, 50_000);
 
+        // Убедимся визуально, что получили ожидаемый результат:
         System.out.println(vehicle1);
         System.out.println("===============================================================================================");
-        // Убедимся визуально, что поле vehicleConfiguration и его копия одинаковые:
+        // Убедимся визуально, что поле vehicleConfiguration клонировался успешно:
         System.out.println("Field (vehicleConfiguration)");
-        System.out.println(vc1);
-        System.out.println(vehicle1.getVehicleConfiguration());
+        System.out.println("Original: " + vc1);
+        System.out.println("Copy: " + vehicle1.getVehicleConfiguration());
         System.out.println("===============================================================================================");
-        // Убедимся визуально, что списки опций одинаковые:
-        System.out.println("List (cofigList)");
-        System.out.println(list1);
-        System.out.println(vehicle1.getVehicleConfiguration().getConfigList());
-        System.out.println("===============================================================================================");
-        // Проверка поля списков опций на равенство (equals и ==):
+        // Проверка поля списков опций на равенство / равенство ссылок (equals и ==):
         System.out.println("List (cofigList)");
         System.out.println("Equals: " + list1.equals(vehicle1.getVehicleConfiguration().getConfigList()));
         System.out.println("==: " + (list1 == vehicle1.getVehicleConfiguration().getConfigList()));
         System.out.println("===============================================================================================");
-        // Проверка поля vehicleConfiguration на равенство (equals и ==):
+        // Проверка поля vehicleConfiguration на равенство / равенство ссылок (equals и ==):
         System.out.println("Field (vehicleConfiguration)");
         System.out.println("Equals: " + vc1.equals(vehicle1.getVehicleConfiguration()));
         System.out.println("==: " + (vc1 == vehicle1.getVehicleConfiguration()));
         System.out.println("===============================================================================================");
+        // Данные манипуляции на наш immutable объект не повлияли:
+        vehicle1.getVehicleConfiguration().setName("Advanced");
+        System.out.println(vehicle1);
     }
 }

@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class StringLengthUtils {
-
     private StringLengthUtils() {
 
     }
-
     public static int totalLength(String ... str) {
         int sum = 0;
         for (String s : str)
@@ -24,7 +22,6 @@ public final class StringLengthUtils {
         }
         return sum / counter;
     }
-
     public static int minLength(String ... str) {
         List<Integer> list = new ArrayList<>();
         for (String s : str)
@@ -62,9 +59,5 @@ public final class StringLengthUtils {
             sortAccordingLength(list, leftIndex, rightIndexMarker);
         if (rightIndex > leftIndexMarker)
             sortAccordingLength(list, leftIndexMarker, rightIndex);
-
-
-
     }
-
 }
